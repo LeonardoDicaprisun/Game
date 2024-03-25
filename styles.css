@@ -10,7 +10,7 @@ body, html {
     height: 500px;
     margin: 50px auto;
     border: 2px solid black;
-    background-image: url('achtergrond_afbeelding.jpg'); /* Vervang 'achtergrond_afbeelding.jpg' door het pad naar je achtergrondafbeelding */
+    background-image: url('foto's informatica/istockphoto-866061030-612x612.jpg'); /* Vervang 'achtergrond_afbeelding.jpg' door het pad naar je achtergrondafbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de hele container bedekt */
     background-position: center; /* Centreert de afbeelding binnen de container */
 }

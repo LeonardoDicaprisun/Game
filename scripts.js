@@ -2,28 +2,48 @@ document.addEventListener("DOMContentLoaded", function() {
     const ball = document.getElementById('ball');
     const goal = document.getElementById('goal');
     const gameContainer = document.getElementById('game-container');
+    const gameContainerRect = gameContainer.getBoundingClientRect(); // toegevoegd
+
+    let ballLeft = 0; // toegevoegd
+    let ballTop = 0; // toegevoegd
+
+    // Plaats de bal linksboven in het game-container
+    ball.style.left = ballLeft + 'px'; // toegevoegd
+    ball.style.top = ballTop + 'px'; // toegevoegd
 
     // Beweging van de bal
     document.addEventListener('keydown', function(event) {
         const key = event.key;
-        const ballStyle = getComputedStyle(ball);
-        const ballLeft = parseInt(ballStyle.left);
-        const ballTop = parseInt(ballStyle.top);
 
+        // Aanpassingen om te voorkomen dat de bal buiten het game-container gaat
+        const step = 10;
         switch (key) {
             case 'ArrowUp':
-                ball.style.top = (ballTop - 10) + 'px';
+                if (ballTop - step >= 0) {
+                    ballTop -= step;
+                }
                 break;
             case 'ArrowDown':
-                ball.style.top = (ballTop + 10) + 'px';
+                if (ballTop + step <= gameContainerRect.height - ball.offsetHeight) {
+                    ballTop += step;
+                }
                 break;
             case 'ArrowLeft':
-                ball.style.left = (ballLeft - 10) + 'px';
+                if (ballLeft - step >= 0) {
+                    ballLeft -= step;
+                }
                 break;
             case 'ArrowRight':
-                ball.style.left = (ballLeft + 10) + 'px';
+                if (ballLeft + step <= gameContainerRect.width - ball.offsetWidth) {
+                    ballLeft += step;
+                }
                 break;
         }
+
+        // Pas de positie van de bal aan
+        ball.style.left = ballLeft + 'px';
+        ball.style.top = ballTop + 'px';
+
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
             alert('Oh nee bakker heeft jou gensapt met jou telefoon, ga je maar melden');
@@ -40,5 +60,4 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
-
 

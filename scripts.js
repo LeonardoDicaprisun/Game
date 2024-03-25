@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
-            alert('jammer Bakker heeft jou met jou telefoon gezien, je mag hem inleveren en vooraan gaan zitten');
+            alert('Gefeliciteerd! Je hebt gewonnen!');
         }
     });
 
@@ -40,3 +40,4 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
+

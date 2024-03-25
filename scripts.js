@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         // Controleer winvoorwaarde
         if (checkCollision(ball, goal)) {
-            alert('Gefeliciteerd! Je hebt gewonnen!');
+            alert('jammer Bakker heeft jou met jou telefoon gezien, je mag hem inleveren en vooraan gaan zitten');
         }
     });
 

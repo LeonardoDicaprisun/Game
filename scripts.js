@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
             alert('Gefeliciteerd! Je hebt gewonnen!');
         }
     });
+
     // Controleer of de bal het doel bereikt
     function checkCollision(ball, goal) {
         const ballRect = ball.getBoundingClientRect();
@@ -39,4 +40,5 @@ document.addEventListener("DOMContentLoaded", function() {
                  ballRect.top > goalRect.bottom);
     }
 });
+
 

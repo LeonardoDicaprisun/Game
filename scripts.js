@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function() {
     goal.style.left = goalLeft + 'px';
     goal.style.top = goalTop + 'px';
 
-    // Beweging van de bal en het doel
+    // Beweging van de bal
     document.addEventListener('keydown', function(event) {
         const key = event.key;
 
@@ -45,6 +45,25 @@ document.addEventListener("DOMContentLoaded", function() {
                     ballLeft += step;
                 }
                 break;
+        }
+
+        // Pas de positie van de bal aan
+        ball.style.left = ballLeft + 'px';
+        ball.style.top = ballTop + 'px';
+
+        // Controleer winvoorwaarde
+        if (checkCollision(ball, goal)) {
+            alert('Oh nee bakker heeft jou gensapt met jou telefoon, ga je maar melden');
+        }
+    });
+
+    // Beweging van het doel
+    document.addEventListener('keydown', function(event) {
+        const key = event.key;
+
+        // Aanpassingen om te voorkomen dat het doel buiten het game-container gaat
+        const step = 10;
+        switch (key) {
             case 'w':
                 if (goalTop - step >= 0) {
                     goalTop -= step;
@@ -67,9 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
         }
 
-        // Pas de positie van de bal en het doel aan
-        ball.style.left = ballLeft + 'px';
-        ball.style.top = ballTop + 'px';
+        // Pas de positie van het doel aan
         goal.style.left = goalLeft + 'px';
         goal.style.top = goalTop + 'px';
 

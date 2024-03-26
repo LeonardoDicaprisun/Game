@@ -28,24 +28,40 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'ArrowUp':
                 if (ballTop - step >= 0) {
                     ballTop -= step;
-                    goalTop -= step;
                 }
                 break;
             case 'ArrowDown':
                 if (ballTop + step <= gameContainerRect.height - ball.offsetHeight) {
                     ballTop += step;
-                    goalTop += step;
                 }
                 break;
             case 'ArrowLeft':
                 if (ballLeft - step >= 0) {
                     ballLeft -= step;
-                    goalLeft -= step;
                 }
                 break;
             case 'ArrowRight':
                 if (ballLeft + step <= gameContainerRect.width - ball.offsetWidth) {
                     ballLeft += step;
+                }
+                break;
+            case 'w':
+                if (goalTop - step >= 0) {
+                    goalTop -= step;
+                }
+                break;
+            case 's':
+                if (goalTop + step <= gameContainerRect.height - goal.offsetHeight) {
+                    goalTop += step;
+                }
+                break;
+            case 'a':
+                if (goalLeft - step >= 0) {
+                    goalLeft -= step;
+                }
+                break;
+            case 'd':
+                if (goalLeft + step <= gameContainerRect.width - goal.offsetWidth) {
                     goalLeft += step;
                 }
                 break;

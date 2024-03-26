@@ -2,14 +2,22 @@ document.addEventListener("DOMContentLoaded", function() {
     const ball = document.getElementById('ball');
     const goal = document.getElementById('goal');
     const gameContainer = document.getElementById('game-container');
-    const gameContainerRect = gameContainer.getBoundingClientRect(); // toegevoegd
+    const gameContainerRect = gameContainer.getBoundingClientRect(); 
 
-    let ballLeft = 0; // toegevoegd
-    let ballTop = 0; // toegevoegd
+    let ballLeft = 0; 
+    let ballTop = 0; 
 
     // Plaats de bal linksboven in het game-container
-    ball.style.left = ballLeft + 'px'; // toegevoegd
-    ball.style.top = ballTop + 'px'; // toegevoegd
+    ball.style.left = ballLeft + 'px'; 
+    ball.style.top = ballTop + 'px'; 
+
+    // Genereer willekeurige coördinaten voor het doel
+    const goalLeft = Math.random() * (gameContainerRect.width - goal.offsetWidth);
+    const goalTop = Math.random() * (gameContainerRect.height - goal.offsetHeight);
+
+    // Stel de positie van het doel in op de willekeurige coördinaten
+    goal.style.left = goalLeft + 'px';
+    goal.style.top = goalTop + 'px';
 
     // Beweging van de bal
     document.addEventListener('keydown', function(event) {
